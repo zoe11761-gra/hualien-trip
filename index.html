@@ -249,17 +249,23 @@ body {
 .icon-btn.del { border-color: var(--coral-light); color: var(--coral); }
 .icon-btn.del:hover { background: var(--coral); color: #fff; }
 
+/* note aligns with title: same left edge as event-body */
 .event-note {
   font-size: 12px; color: var(--text-mid); line-height: 1.5;
-  margin-top: 7px; padding: 7px 10px;
+  margin-top: 6px; padding: 6px 10px;
   background: var(--sand); border-radius: 8px;
   white-space: pre-wrap; word-break: break-word;
+  border-left: 3px solid var(--sand-dark);
 }
 .event-cost-tag {
   display: inline-flex; align-items: center; gap: 4px;
   background: var(--yellow-light); border: 1px solid var(--yellow);
   border-radius: 20px; padding: 2px 9px;
-  font-size: 11px; font-weight: 700; color: #7a5a00; margin-top: 5px;
+  font-size: 11px; font-weight: 700; color: #7a5a00;
+}
+.event-bottom-row {
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; margin-top: 7px;
 }
 .event-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
 .event-link-tag {
@@ -915,15 +921,17 @@ function renderEventCard(ev, cls){
           ? `<a class="event-location" href="${ev.mapUrl}" target="_blank">📍 ${esc(ev.location)}</a>`
           : `<span class="event-location" style="cursor:default;text-decoration:none">📍 ${esc(ev.location)}</span>`)
         : ''}
+        ${ev.note ? `<div class="event-note">${esc(ev.note)}</div>` : ''}
+        ${(ev.cost || links) ? `<div class="event-bottom-row">
+          ${ev.cost ? `<div class="event-cost-tag">每人 NT$ ${Number(ev.cost).toLocaleString()}</div>` : ''}
+          ${links}
+        </div>` : ''}
       </div>
       ${isAdmin ? `<div class="event-inline-actions">
         <button class="icon-btn edit" onclick="openEditEvent('${ev.id}')">✏️</button>
         <button class="icon-btn del"  onclick="deleteEvent('${ev.id}')">🗑</button>
       </div>` : ''}
     </div>
-    ${ev.note ? `<div class="event-note">${esc(ev.note)}</div>` : ''}
-    ${ev.cost ? `<div class="event-cost-tag">💴 預計 NT$ ${Number(ev.cost).toLocaleString()}</div>` : ''}
-    ${links ? `<div class="event-links">${links}</div>` : ''}
     ${choleHtml}
   </div>`;
 }
