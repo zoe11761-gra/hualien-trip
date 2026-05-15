@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Hualien Chill Trip 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #F0EBE3;
+  --warm-white: #FAF7F4;
+  --sand: #E4DCCF;
+  --sand-dark: #d4c8b8;
+  --teal: #7D9D9C;
+  --teal-dark: #576F72;
+  --teal-light: #b8d0cf;
+  --teal-pale: #e8f0f0;
+  --blue: #5b9bd5;
+  --blue-light: #a8cef0;
+  --blue-pale: #deeef9;
+  --coral: #e8826a;
+  --coral-light: #f5c4b8;
+  --yellow: #f5c842;
+  --yellow-light: #fae9a0;
+  --purple: #9b84c8;
+  --purple-light: #d8cef0;
+  --text: #2c3a3b;
+  --text-mid: #576F72;
+  --text-light: #8fa5a5;
+  --border: #d8cfc5;
+  --shadow: 0 2px 12px rgba(87,111,114,0.1);
+  --shadow-md: 0 4px 20px rgba(87,111,114,0.15);
+  --r: 16px;
+  --r-sm: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'Nunito', 'Noto Sans TC', sans-serif;
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== SPLASH ===== */
+#splash {
+  position: fixed; inset: 0; z-index: 999;
+  background: var(--warm-white);
+  display: flex; align-items: center; justify-content: center;
+}
+.splash-deco { position: absolute; pointer-events: none; border-radius: 50%; }
+.sd-tl { top:-40px; left:-40px; width:200px; height:200px; background:radial-gradient(circle,rgba(125,157,156,0.18) 0%,transparent 70%); }
+.sd-br { bottom:-50px; right:-50px; width:240px; height:240px; background:radial-gradient(circle,rgba(87,111,114,0.13) 0%,transparent 70%); }
+.sd-tr { top:10px; right:-10px; width:110px; height:110px; background:radial-gradient(circle,rgba(228,220,207,0.7) 0%,transparent 70%); }
+.splash-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 20px 36px;
+}
+.splash-year {
+  font-size: 11px; font-weight: 800; letter-spacing: 6px;
+  color: var(--teal); text-transform: uppercase; margin-bottom: 12px;
+}
+.splash-title {
+  font-size: 42px; font-weight: 900; line-height: 1.1;
+  margin-bottom: 12px; letter-spacing: -0.5px;
+}
+.splash-t1 { color: var(--teal-dark); }
+.splash-t2 { color: var(--text); }
+.splash-sub {
+  font-size: 18px; font-weight: 800; color: var(--teal);
+  letter-spacing: 3px; margin-bottom: 32px;
+  opacity: 0.85;
+}
+.splash-bar-track {
+  width: 160px; height: 5px;
+  background: var(--sand); border-radius: 5px; overflow: hidden;
+}
+.splash-bar-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--teal), var(--teal-dark));
+  border-radius: 5px;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--warm-white);
+  border-bottom: 1.5px solid var(--border);
+  position: sticky; top: 0; z-index: 50;
+  overflow: hidden;
+}
+.header-bg {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+}
+.header-blob1 {
+  position: absolute; top: -30px; right: -30px;
+  width: 130px; height: 130px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(125,157,156,0.12) 0%, transparent 70%);
+}
+.header-blob2 {
+  position: absolute; bottom: -15px; left: 20px;
+  width: 90px; height: 90px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(87,111,114,0.08) 0%, transparent 70%);
+}
+.header-blob3 {
+  position: absolute; top: 10px; left: -20px;
+  width: 80px; height: 80px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(228,220,207,0.6) 0%, transparent 70%);
+}
+.header-inner { position: relative; z-index: 2; padding: 16px 18px 0; }
+.header-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.header-year {
+  font-size: 10px; font-weight: 800; letter-spacing: 4px;
+  color: var(--teal); text-transform: uppercase; margin-bottom: 3px;
+}
+.header-name { font-size: 22px; font-weight: 900; line-height: 1.2; }
+.header-name .hn1 { color: var(--teal-dark); }
+.header-name .hn2 { color: var(--text); }
+.header-meta {
+  display: flex; align-items: center; gap: 7px;
+  margin-bottom: 10px; flex-wrap: wrap;
+}
+.meta-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--teal-pale); border-radius: 20px;
+  padding: 4px 13px; font-size: 11px; font-weight: 700; color: var(--teal-dark);
+}
+.meta-year { color: var(--teal-dark); font-weight: 900; }
+.meta-sep { color: var(--teal-light); font-size: 10px; }
+.admin-btn {
+  margin-left: auto;
+  background: var(--sand); border: 1.5px solid var(--sand-dark);
+  border-radius: 20px; padding: 4px 12px;
+  font-size: 11px; font-weight: 800; color: var(--teal-dark);
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.admin-btn:hover { background: var(--teal-pale); border-color: var(--teal); }
+.admin-btn.active { background: var(--teal-pale); border-color: var(--teal); color: var(--teal-dark); }
+.tabs { display: flex; }
+.tab-btn {
+  flex: 1; padding: 10px; background: none; border: none;
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  color: var(--text-light); cursor: pointer;
+  border-bottom: 3px solid transparent; transition: all 0.2s;
+}
+.tab-btn.active { color: var(--teal-dark); border-bottom-color: var(--teal-dark); }
+
+/* ===== CONTENT ===== */
+.content { padding: 16px 14px 50px; }
+
+/* ===== DAY BLOCK ===== */
+.day-block { margin-bottom: 26px; }
+.day-label {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+}
+.day-badge {
+  background: var(--teal); color: #fff;
+  border-radius: 12px; padding: 4px 14px;
+  font-size: 13px; font-weight: 800; flex-shrink: 0;
+}
+.day-badge.d1 { background: var(--teal); }
+.day-badge.d3 { background: var(--teal-dark); }
+.day-date-txt { font-size: 12px; font-weight: 700; color: var(--text-light); }
+.day-add-btn {
+  margin-left: auto;
+  background: var(--blue-pale); border: 1.5px dashed var(--blue-light);
+  border-radius: 20px; padding: 4px 12px;
+  font-size: 12px; font-weight: 700; color: var(--blue);
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.day-add-btn:hover { background: var(--blue); color: #fff; border-style: solid; }
+
+/* ===== EVENT CARD ===== */
+.event-card {
+  background: var(--warm-white);
+  border: 2px solid var(--border); border-radius: var(--r);
+  padding: 13px 13px 13px 17px;
+  margin-bottom: 9px; box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.event-card:hover { border-color: var(--blue-light); box-shadow: var(--shadow-md); }
+.event-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: var(--teal); border-radius: 4px 0 0 4px;
+}
+.event-card.day1::before { background: var(--teal-light); }
+.event-card.day2::before { background: var(--teal); }
+.event-card.day3::before { background: var(--teal-dark); }
+.event-row1 { display: flex; gap: 9px; align-items: flex-start; }
+.event-time {
+  background: var(--teal-pale); border-radius: 8px;
+  padding: 3px 9px; font-size: 12px; font-weight: 800;
+  color: var(--teal-dark); white-space: nowrap; flex-shrink: 0;
+  min-width: 58px; text-align: center;
+}
+.event-card.day1 .event-time { background: var(--teal-pale); color: var(--teal); }
+.event-card.day3 .event-time { background: var(--sand); color: var(--teal-dark); }
+.event-body { flex: 1; min-width: 0; }
+.event-title { font-size: 14px; font-weight: 800; color: var(--text); line-height: 1.3; }
+.event-location {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 12px; font-weight: 600; color: var(--teal);
+  text-decoration: none; margin-top: 3px;
+}
+.event-location:hover { text-decoration: underline; }
+/* action buttons inline top-right */
+.event-inline-actions {
+  display: flex; gap: 4px; flex-shrink: 0; margin-left: 4px;
+}
+.icon-btn {
+  width: 26px; height: 26px; border-radius: 7px; border: 1.5px solid;
+  font-size: 12px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center;
+  background: none; transition: all 0.15s;
+}
+.icon-btn.edit { border-color: var(--blue-light); color: var(--blue); }
+.icon-btn.edit:hover { background: var(--blue); color: #fff; }
+.icon-btn.del { border-color: var(--coral-light); color: var(--coral); }
+.icon-btn.del:hover { background: var(--coral); color: #fff; }
+
+.event-note {
+  font-size: 12px; color: var(--text-mid); line-height: 1.5;
+  margin-top: 7px; padding: 7px 10px;
+  background: var(--sand); border-radius: 8px;
+}
+.event-cost-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--yellow-light); border: 1px solid var(--yellow);
+  border-radius: 20px; padding: 2px 9px;
+  font-size: 11px; font-weight: 700; color: #7a5a00; margin-top: 5px;
+}
+.event-links { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+.event-link-tag {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: var(--purple-light); border-radius: 20px;
+  padding: 2px 9px; font-size: 11px; font-weight: 700;
+  color: var(--purple); text-decoration: none;
+}
+.event-link-tag:hover { background: var(--purple); color: #fff; }
+
+.empty-card {
+  background: var(--sand); border: 2px dashed var(--sand-dark);
+  border-radius: var(--r); padding: 18px;
+  text-align: center; font-size: 13px;
+  color: var(--text-light); font-weight: 600;
+}
+
+/* ===== CHOLE COMMENT ===== */
+.chole-bubble {
+  margin-top: 9px;
+  background: #fff5f0; border: 1.5px solid var(--coral-light);
+  border-radius: 10px; padding: 9px 11px;
+}
+.chole-who { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
+.chole-tag-badge {
+  background: var(--coral-light); color: var(--coral);
+  font-size: 10px; font-weight: 800; border-radius: 8px; padding: 2px 8px;
+}
+.chole-name-lbl { font-size: 11px; font-weight: 800; color: var(--coral); }
+.chole-txt { font-size: 12px; color: var(--text-mid); line-height: 1.55; }
+.chole-textarea {
+  width: 100%; margin-top: 6px; padding: 7px 10px;
+  background: #fff; border: 1.5px solid var(--coral-light);
+  border-radius: 8px; font-family: inherit; font-size: 12px;
+  color: var(--text); resize: vertical; outline: none;
+}
+.chole-textarea:focus { border-color: var(--coral); }
+.chole-save-btn {
+  margin-top: 5px; padding: 5px 13px;
+  background: var(--coral); color: #fff;
+  border: none; border-radius: 7px; font-family: inherit;
+  font-size: 12px; font-weight: 700; cursor: pointer; opacity: 1;
+  transition: opacity 0.2s;
+}
+.chole-save-btn:hover { opacity: 0.82; }
+.chole-add-btn {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+  background: #fff5f0; border: 1.5px dashed var(--coral-light);
+  border-radius: 8px; padding: 5px 11px;
+  font-size: 11px; font-weight: 700; color: var(--coral);
+  cursor: pointer; font-family: inherit; transition: all 0.2s;
+}
+.chole-add-btn:hover { background: var(--coral-light); }
+
+/* ===== EXPENSE ===== */
+.add-expense-btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  width: 100%; padding: 12px;
+  background: var(--warm-white); border: 2px dashed var(--teal-light);
+  border-radius: var(--r); color: var(--teal-dark);
+  font-size: 14px; font-weight: 800; cursor: pointer;
+  font-family: inherit; transition: all 0.2s; margin-bottom: 14px;
+}
+.add-expense-btn:hover { background: var(--teal-pale); }
+
+/* expense card */
+.expense-card {
+  background: var(--warm-white); border: 2px solid var(--border);
+  border-radius: var(--r); padding: 13px 13px 13px 17px;
+  margin-bottom: 9px; box-shadow: var(--shadow);
+  position: relative; overflow: hidden;
+}
+.expense-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  border-radius: 4px 0 0 4px;
+}
+.expense-card.ec-d0::before { background: var(--teal-light); }
+.expense-card.ec-d1::before { background: var(--teal); }
+.expense-card.ec-d2::before { background: var(--teal-dark); }
+
+.exp-card-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 6px;
+}
+.exp-card-info { flex: 1; min-width: 0; }
+.exp-card-title { font-size: 14px; font-weight: 800; color: var(--text); }
+.exp-card-date { font-size: 11px; font-weight: 600; color: var(--text-light); margin-top: 1px; }
+.exp-card-actions { display: flex; gap: 4px; flex-shrink: 0; }
+
+.exp-amounts { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 9px; }
+.exp-amt-box {
+  background: var(--sand); border-radius: 8px; padding: 6px 11px;
+}
+.exp-amt-lbl { font-size: 10px; font-weight: 700; color: var(--text-light); }
+.exp-amt-val { font-size: 14px; font-weight: 900; color: var(--text); }
+
+.exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.exp-payer-tag {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: var(--teal-pale); border-radius: 20px;
+  padding: 3px 10px; font-size: 11px; font-weight: 700; color: var(--teal-dark);
+}
+.exp-share-tag {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: var(--sand); border-radius: 20px;
+  padding: 3px 10px; font-size: 11px; font-weight: 700; color: var(--text-mid);
+}
+.exp-note {
+  font-size: 12px; color: var(--text-mid); line-height: 1.5;
+  margin-top: 7px; padding: 6px 10px;
+  background: var(--sand); border-radius: 8px;
+}
+
+/* settled checkbox — now inline right-side under action buttons */
+.settled-inline {
+  display: flex; align-items: center; gap: 6px;
+  margin-top: 6px; cursor: pointer; user-select: none;
+  justify-content: flex-end;
+}
+.settled-check {
+  width: 18px; height: 18px; border-radius: 5px;
+  border: 2px solid var(--sand-dark); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--warm-white); transition: all 0.15s; font-size: 11px;
+}
+.settled-inline.done .settled-check { background: var(--teal); border-color: var(--teal); color: #fff; }
+.settled-lbl { font-size: 11px; font-weight: 700; color: var(--text-light); }
+.settled-inline.done .settled-lbl { color: var(--teal); }
+
+/* settlement */
+.settlement-card {
+  background: var(--warm-white); border: 2px solid var(--border);
+  border-radius: var(--r); padding: 14px;
+  margin-top: 16px; box-shadow: var(--shadow);
+}
+.card-title {
+  font-size: 13px; font-weight: 800; color: var(--text);
+  margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+}
+.settle-row {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
+  padding: 8px 10px; background: var(--sand);
+  border-radius: 10px; margin-bottom: 6px; font-size: 13px;
+}
+.settle-from { font-weight: 800; color: var(--teal-dark); }
+.settle-to { font-weight: 800; color: var(--teal); }
+.settle-arrow { color: var(--text-light); font-size: 11px; }
+.settle-amt { margin-left: auto; font-weight: 900; color: var(--text); }
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(60,45,30,0.42); backdrop-filter: blur(3px);
+  z-index: 200; overflow-y: auto; padding: 18px 13px;
+}
+.modal-overlay.show { display: flex; align-items: flex-start; justify-content: center; }
+.modal {
+  background: var(--warm-white); border: 2px solid var(--border);
+  border-radius: var(--r); width: 100%; max-width: 480px;
+  box-shadow: 0 8px 40px rgba(60,45,30,0.18);
+  animation: modalPop 0.22s ease;
+}
+@keyframes modalPop {
+  from { opacity:0; transform:scale(0.96) translateY(8px); }
+  to   { opacity:1; transform:scale(1)    translateY(0); }
+}
+.modal-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; border-bottom: 2px solid var(--border);
+}
+.modal-title { font-size: 15px; font-weight: 800; color: var(--text); }
+.modal-x {
+  width: 28px; height: 28px; background: var(--sand);
+  border: none; border-radius: 7px; color: var(--text-mid);
+  font-size: 14px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-x:hover { background: var(--coral-light); color: var(--coral); }
+.modal-body { padding: 16px; }
+.modal-foot {
+  padding: 12px 16px; border-top: 2px solid var(--border);
+  display: flex; gap: 9px;
+}
+.form-grp { margin-bottom: 12px; }
+.form-lbl {
+  display: block; font-size: 11px; font-weight: 700;
+  color: var(--text-mid); margin-bottom: 4px;
+}
+.req { color: var(--coral); }
+.form-inp, .form-sel, .form-ta {
+  width: 100%; padding: 9px 12px;
+  background: var(--warm-white); border: 2px solid var(--border);
+  border-radius: var(--r-sm); font-family: inherit; font-size: 13px;
+  color: var(--text); outline: none; transition: border-color 0.2s;
+}
+.form-inp:focus, .form-sel:focus, .form-ta:focus { border-color: var(--teal); }
+.form-ta { resize: vertical; min-height: 72px; }
+.form-sel option { background: #fff; }
+
+/* member toggle buttons */
+.member-toggles { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.member-toggle {
+  padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  border: 2px solid var(--border); background: var(--sand);
+  color: var(--text-mid); cursor: pointer; font-family: inherit;
+  transition: all 0.15s; user-select: none;
+}
+.member-toggle.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+.links-list { display: flex; flex-direction: column; gap: 6px; }
+.link-row { display: flex; gap: 5px; }
+.link-row .form-inp { flex: 1; }
+.btn-link-rm {
+  width: 36px; height: 36px; background: #fff0ee;
+  border: 2px solid var(--coral-light); border-radius: 8px;
+  color: var(--coral); cursor: pointer; font-size: 13px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.btn-add-link {
+  background: var(--purple-light); border: 2px dashed var(--purple);
+  border-radius: 8px; color: var(--purple); padding: 6px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s; width: 100%; margin-top: 6px;
+}
+.btn-add-link:hover { background: var(--purple); color: #fff; }
+.btn-primary {
+  flex: 1; padding: 11px; background: var(--teal-dark);
+  border: none; border-radius: var(--r-sm); color: #fff;
+  font-weight: 800; font-size: 14px; cursor: pointer;
+  font-family: inherit; transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-cancel {
+  padding: 11px 16px; background: var(--sand);
+  border: 2px solid var(--border); border-radius: var(--r-sm);
+  color: var(--text-mid); font-size: 14px; cursor: pointer;
+  font-family: inherit; font-weight: 700;
+}
+.btn-cancel:hover { background: var(--sand-dark); }
+
+/* pw modal */
+.pw-box { text-align: center; padding: 26px 18px; }
+.pw-icon { font-size: 44px; margin-bottom: 10px; }
+.pw-title { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 16px; }
+.pw-inp {
+  width: 100%; padding: 12px; background: var(--sand);
+  border: 2px solid var(--border); border-radius: var(--r-sm);
+  text-align: center; letter-spacing: 6px; font-size: 20px;
+  font-family: inherit; color: var(--text); outline: none; margin-bottom: 12px;
+}
+.pw-inp:focus { border-color: var(--teal); }
+.pw-err { font-size: 12px; font-weight: 700; color: var(--coral); margin: -6px 0 10px; }
+.pw-ok {
+  width: 100%; padding: 12px; background: var(--teal-dark); border: none;
+  border-radius: var(--r-sm); color: #fff; font-size: 14px; font-weight: 800;
+  cursor: pointer; font-family: inherit; margin-bottom: 8px;
+}
+.pw-ok:hover { opacity: 0.88; }
+.pw-cancel {
+  width: 100%; padding: 10px; background: var(--sand);
+  border: 2px solid var(--border); border-radius: var(--r-sm);
+  color: var(--text-mid); font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+}
+
+/* toast */
+.toast {
+  position: fixed; bottom: 22px; left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  background: var(--text); color: #fff;
+  border-radius: 22px; padding: 9px 20px;
+  font-size: 13px; font-weight: 700; z-index: 999;
+  opacity: 0; transition: all 0.28s; pointer-events: none;
+  white-space: nowrap; box-shadow: var(--shadow-md);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+body.no-scroll { overflow: hidden; }
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-deco sd-tl"></div>
+  <div class="splash-deco sd-br"></div>
+  <div class="splash-deco sd-tr"></div>
+  <div class="splash-inner">
+    <div class="splash-year">2026</div>
+    <div class="splash-title"><span class="splash-t1">Hualien</span> <span class="splash-t2">Chill Trip</span></div>
+    <div class="splash-sub">r u ready?</div>
+    <div class="splash-bar-track">
+      <div class="splash-bar-fill" id="splashFill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp" style="display:none">
+
+  <div class="header">
+    <div class="header-bg">
+      <div class="header-blob1"></div>
+      <div class="header-blob2"></div>
+      <div class="header-blob3"></div>
+    </div>
+    <div class="header-inner">
+      <div class="header-top">
+        <div>
+          <div class="header-year">2026</div>
+          <div class="header-name"><span class="hn1">Hualien</span> <span class="hn2">Chill Trip</span></div>
+        </div>
+      </div>
+      <div class="header-meta">
+        <div class="meta-pill"><span class="meta-year">2026</span><span class="meta-sep">／</span>20 May – 22 May</div>
+        <button class="admin-btn" id="adminBtn" onclick="toggleAdmin()">🔐 管理者</button>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('itinerary')">🗓 行程</button>
+        <button class="tab-btn" onclick="switchTab('expense')">💰 費用</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITINERARY TAB -->
+  <div class="content" id="tabItinerary">
+    <div id="itineraryContainer"></div>
+  </div>
+
+  <!-- EXPENSE TAB -->
+  <div class="content" id="tabExpense" style="display:none">
+    <button class="add-expense-btn" onclick="openExpenseModal()">＋ 新增費用明細</button>
+    <div id="expenseList"></div>
+    <div class="settlement-card">
+      <div class="card-title">⚖️ 費用分帳結算</div>
+      <div id="settlementList"><div style="font-size:13px;color:var(--text-light);font-weight:600">尚無費用資料</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- EVENT MODAL -->
+<div class="modal-overlay" id="eventModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="eventModalTitle">✨ 新增行程</div>
+      <button class="modal-x" onclick="closeModal('eventModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grp">
+        <label class="form-lbl">日期 <span class="req">*</span></label>
+        <select class="form-sel" id="evDay">
+          <option value="0">Day 1 · 5/20 (Wed)</option>
+          <option value="1">Day 2 · 5/21 (Thu)</option>
+          <option value="2">Day 3 · 5/22 (Fri)</option>
+        </select>
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">時間 <span class="req">*</span></label>
+        <input class="form-inp" type="time" id="evTime" value="09:00">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">行程標題 <span class="req">*</span></label>
+        <input class="form-inp" type="text" id="evTitle" placeholder="例：太魯閣峽谷探索">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">地點名稱</label>
+        <input class="form-inp" type="text" id="evLocation" placeholder="例：太魯閣國家公園">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">地點連結（Google Maps）</label>
+        <input class="form-inp" type="url" id="evMapUrl" placeholder="https://maps.google.com/...">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">行程備註</label>
+        <textarea class="form-ta" id="evNote" placeholder="注意事項、穿著建議..."></textarea>
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">預計費用（選填）</label>
+        <input class="form-inp" type="number" id="evCost" placeholder="NT$">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">相關連結</label>
+        <div class="links-list" id="linksList"></div>
+        <button class="btn-add-link" onclick="addLink()">＋ 新增連結</button>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeModal('eventModal')">取消</button>
+      <button class="btn-primary" onclick="saveEvent()">儲存行程</button>
+    </div>
+  </div>
+</div>
+
+<!-- EXPENSE MODAL -->
+<div class="modal-overlay" id="expenseModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div class="modal-title" id="expenseModalTitle">💳 新增費用</div>
+      <button class="modal-x" onclick="closeModal('expenseModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grp">
+        <label class="form-lbl">日期 <span class="req">*</span></label>
+        <select class="form-sel" id="expDay">
+          <option value="0">5/20 (Wed)</option>
+          <option value="1">5/21 (Thu)</option>
+          <option value="2">5/22 (Fri)</option>
+        </select>
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">費用名稱 <span class="req">*</span></label>
+        <input class="form-inp" type="text" id="expTitle" placeholder="例：太魯閣門票">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">總費用（選填）</label>
+        <input class="form-inp" type="number" id="expTotal2" placeholder="NT$" oninput="calcExpAmt()">
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">每人費用（選填）</label>
+        <input class="form-inp" type="number" id="expPer2" placeholder="NT$（若填入將覆蓋均攤）" oninput="calcExpAmt()">
+      </div>
+      <div id="expAmtHint" style="font-size:12px;font-weight:700;color:var(--teal);margin:-6px 0 10px;"></div>
+      <div class="form-grp">
+        <label class="form-lbl">代墊人 <span class="req">*</span></label>
+        <select class="form-sel" id="expPayer"></select>
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">平攤費用人 <span class="req">*</span>（可多選）</label>
+        <div class="member-toggles" id="expSharers"></div>
+      </div>
+      <div class="form-grp">
+        <label class="form-lbl">備註（選填）</label>
+        <textarea class="form-ta" id="expNote" placeholder="備註說明..." style="min-height:56px"></textarea>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeModal('expenseModal')">取消</button>
+      <button class="btn-primary" onclick="saveExpense()">儲存費用</button>
+    </div>
+  </div>
+</div>
+
+<!-- PW MODAL -->
+<div class="modal-overlay" id="pwModal">
+  <div class="modal" style="margin-top:60px">
+    <div class="modal-body">
+      <div class="pw-box">
+        <div class="pw-icon">🗝️</div>
+        <div class="pw-title">身份驗證</div>
+        <input class="pw-inp" type="password" id="pwInput" placeholder="••••"
+          onkeydown="if(event.key==='Enter')verifyPw()">
+        <div class="pw-err" id="pwErr" style="display:none">密碼錯誤，請再試一次</div>
+        <button class="pw-ok" onclick="verifyPw()">確認登入</button>
+        <button class="pw-cancel" onclick="closeModal('pwModal')">取消</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- SPLASH SCRIPT (plain, runs immediately) -->
+<script>
+(function(){
+  var fill = document.getElementById('splashFill');
+  var dur = 1400, start = null;
+  function step(ts){
+    if(!start) start = ts;
+    var p = Math.min((ts - start)/dur, 1);
+    fill.style.width = (p * 100) + '%';
+    if(p < 1){
+      requestAnimationFrame(step);
+    } else {
+      var s = document.getElementById('splash');
+      s.style.transition = 'opacity 0.5s';
+      s.style.opacity = '0';
+      setTimeout(function(){
+        s.style.display = 'none';
+        document.getElementById('mainApp').style.display = 'block';
+      }, 520);
+    }
+  }
+  requestAnimationFrame(step);
+})();
+</script>
+
+<!-- MAIN SCRIPT (module for Firebase) -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, onValue, push, remove, update } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+// ⚠️ 填入你的 Firebase 設定
+const firebaseConfig = {
+  apiKey: "AIzaSyCW-9kGhYb5PqWYFmzmCX6VMLedn6HX80Y",
+  authDomain: "hualien-trip.firebaseapp.com",
+  databaseURL: "https://hualien-trip-default-rtdb.firebaseio.com",
+  projectId: "hualien-trip",
+  storageBucket: "hualien-trip.firebasestorage.app",
+  messagingSenderId: "587290066488",
+  appId: "1:587290066488:web:48afdc75da6d14872d70cd"
+};
+
+const MEMBERS = ['Grass','Jolin','John','Cody','Helen','Paul'];
+const DAYS = [
+  { label:'Day 1', date:'5/20 Wed', cls:'day1', ecls:'ec-d0' },
+  { label:'Day 2', date:'5/21 Thu', cls:'day2', ecls:'ec-d1' },
+  { label:'Day 3', date:'5/22 Fri', cls:'day3', ecls:'ec-d2' },
+];
+
+let db, useLocal = true;
+let events = [], expenses = [];
+let isAdmin = false, isChole = false;
+let editEvId = null, editExpId = null;
+
+try {
+  if(firebaseConfig.apiKey !== 'YOUR_API_KEY'){
+    db = getDatabase(initializeApp(firebaseConfig));
+    useLocal = false;
+    setupFirebase();
+  } else { setupLocal(); }
+} catch(e){ setupLocal(); }
+
+function setupLocal(){
+  events   = JSON.parse(localStorage.getItem('hl_events')  || 'null') || [];
+  expenses = JSON.parse(localStorage.getItem('hl_expenses')|| 'null') || [];
+  if(events.length === 0) seedSample();
+  renderAll();
+}
+function saveLocal(){
+  localStorage.setItem('hl_events',   JSON.stringify(events));
+  localStorage.setItem('hl_expenses', JSON.stringify(expenses));
+}
+function setupFirebase(){
+  onValue(ref(db,'events'), s=>{
+    events=[];
+    if(s.val()) Object.entries(s.val()).forEach(([id,v])=>events.push({id,...v}));
+    renderItinerary();
+  });
+  onValue(ref(db,'expenses'), s=>{
+    expenses=[];
+    if(s.val()) Object.entries(s.val()).forEach(([id,v])=>expenses.push({id,...v}));
+    renderExpenses();
+  });
+}
+
+function seedSample(){
+  events = [
+    {id:'s1',day:0,time:'08:00',title:'集合出發 🚂',location:'台北車站',mapUrl:'',note:'搭自強號，記得帶早餐！',cost:'',links:[]},
+    {id:'s2',day:0,time:'11:30',title:'抵達花蓮、Check-in',location:'花蓮民宿',mapUrl:'',note:'民宿有免費停車',cost:'1800',links:[]},
+    {id:'s3',day:0,time:'13:00',title:'午餐 🍱',location:'東大門夜市',mapUrl:'',note:'推薦公正包子 & 炸蛋蔥油餅',cost:'200',links:[]},
+    {id:'s4',day:1,time:'08:00',title:'太魯閣峽谷健行',location:'太魯閣國家公園',mapUrl:'https://maps.google.com',note:'長褲防曬必備，帶足飲水',cost:'0',links:[{label:'官網',url:'https://www.taroko.gov.tw'}]},
+    {id:'s5',day:1,time:'17:00',title:'七星潭日落 🌅',location:'七星潭',mapUrl:'https://maps.google.com',note:'可以撿石頭',cost:'',links:[]},
+    {id:'s6',day:2,time:'09:00',title:'早午餐 ☕',location:'花蓮市區咖啡廳',mapUrl:'',note:'',cost:'',links:[]},
+    {id:'s7',day:2,time:'11:30',title:'返回台北 🚂',location:'花蓮火車站',mapUrl:'',note:'記得提前到月台',cost:'',links:[]},
+  ];
+  expenses = [
+    {id:'e1',day:0,title:'台北→花蓮 火車票',total:'3600',perPerson:'600',payer:'Grass',sharers:MEMBERS,note:''},
+    {id:'e2',day:0,title:'民宿三晚',total:'10800',perPerson:'1800',payer:'Jolin',sharers:MEMBERS,note:''},
+    {id:'e3',day:1,title:'太魯閣接駁車',total:'1200',perPerson:'200',payer:'John',sharers:MEMBERS,note:'含來回'},
+    {id:'e4',day:2,title:'花蓮→台北 火車票',total:'3600',perPerson:'600',payer:'Grass',sharers:MEMBERS,note:''},
+  ];
+  saveLocal();
+}
+
+function renderAll(){ renderItinerary(); renderExpenses(); }
+
+// ===== ITINERARY =====
+function renderItinerary(){
+  const c = document.getElementById('itineraryContainer');
+  let html = '';
+  DAYS.forEach((day,di)=>{
+    const dayEvs = events.filter(e=>e.day==di).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
+    const badgeCls = ['d1','','d3'][di] || '';
+    html += `<div class="day-block">
+      <div class="day-label">
+        <div class="day-badge ${badgeCls}">${day.label}</div>
+        <div class="day-date-txt">${day.date}</div>
+        ${isAdmin ? `<button class="day-add-btn" onclick="openEventModal(${di})">＋ 新增</button>` : ''}
+      </div>`;
+    if(dayEvs.length===0){
+      html+=`<div class="empty-card">🗺️ 尚無行程</div>`;
+    } else {
+      dayEvs.forEach(ev=>{ html+=renderEventCard(ev, day.cls); });
+    }
+    html+=`</div>`;
+  });
+  c.innerHTML = html;
+}
+
+function renderEventCard(ev, cls){
+  const links = (ev.links||[]).filter(l=>l.url).map(l=>
+    `<a class="event-link-tag" href="${l.url}" target="_blank">🔗 ${esc(l.label||'連結')}</a>`
+  ).join('');
+
+  let choleHtml = '';
+  if(ev.choleComment){
+    choleHtml = `<div class="chole-bubble">
+      <div class="chole-who">
+        <span class="chole-tag-badge">留言</span>
+        <span class="chole-name-lbl">Chole</span>
+      </div>
+      <div class="chole-txt">${esc(ev.choleComment)}</div>
+      ${isChole ? `<textarea class="chole-textarea" id="ct-ev-${ev.id}" rows="2">${esc(ev.choleComment)}</textarea>
+        <button class="chole-save-btn" onclick="saveCholeEv('${ev.id}')">更新</button>` : ''}
+    </div>`;
+  } else if(isChole){
+    choleHtml = `
+      <button class="chole-add-btn" id="cbtn-ev-${ev.id}" onclick="showCholeEv('${ev.id}')">💬 Chole 留言</button>
+      <div id="cbox-ev-${ev.id}" style="display:none;margin-top:7px">
+        <textarea class="chole-textarea" id="ct-ev-${ev.id}" rows="2" placeholder="輸入留言..."></textarea>
+        <div style="display:flex;gap:5px;margin-top:5px">
+          <button class="chole-save-btn" style="flex:1" onclick="saveCholeEv('${ev.id}')">送出</button>
+          <button class="chole-save-btn" style="background:var(--sand);color:var(--text-mid)" onclick="hideCholeEv('${ev.id}')">取消</button>
+        </div>
+      </div>`;
+  }
+
+  return `<div class="event-card ${cls}">
+    <div class="event-row1">
+      <div class="event-time">${ev.time||'--:--'}</div>
+      <div class="event-body">
+        <div class="event-title">${esc(ev.title)}</div>
+        ${ev.location ? `<a class="event-location" href="${ev.mapUrl||'#'}" target="_blank">📍 ${esc(ev.location)}</a>` : ''}
+      </div>
+      ${isAdmin ? `<div class="event-inline-actions">
+        <button class="icon-btn edit" onclick="openEditEvent('${ev.id}')">✏️</button>
+        <button class="icon-btn del"  onclick="deleteEvent('${ev.id}')">🗑</button>
+      </div>` : ''}
+    </div>
+    ${ev.note ? `<div class="event-note">📝 ${esc(ev.note)}</div>` : ''}
+    ${ev.cost ? `<div class="event-cost-tag">💴 預計 NT$ ${Number(ev.cost).toLocaleString()}</div>` : ''}
+    ${links ? `<div class="event-links">${links}</div>` : ''}
+    ${choleHtml}
+  </div>`;
+}
+
+// ===== EXPENSES =====
+function renderExpenses(){
+  const sorted = [...expenses].sort((a,b)=>a.day-b.day);
+  let grandTotal = 0;
+  let paid = {}, owes = {};
+  MEMBERS.forEach(m=>{ paid[m]=0; owes[m]=0; });
+
+  sorted.forEach(exp=>{
+    if(exp.settled) return; // skip settled from calculation
+    const sharers = exp.sharers && exp.sharers.length ? exp.sharers : MEMBERS;
+    const n = sharers.length;
+    const t = Number(exp.total)||0;
+    const per = exp.perPerson ? Number(exp.perPerson) : (t>0 ? t/n : 0);
+    const actTotal = exp.perPerson ? per*n : t;
+    grandTotal += actTotal;
+    if(exp.payer) paid[exp.payer] = (paid[exp.payer]||0) + actTotal;
+    sharers.forEach(m=>{ owes[m] = (owes[m]||0) + per; });
+  });
+
+  // settlement
+  let bal = {};
+  MEMBERS.forEach(m=>{ bal[m] = (paid[m]||0) - (owes[m]||0); });
+  let creds = MEMBERS.filter(m=>bal[m]>0.5).map(m=>({name:m,amt:bal[m]}));
+  let debs  = MEMBERS.filter(m=>bal[m]<-0.5).map(m=>({name:m,amt:-bal[m]}));
+  let settles=[],ci=0,di=0;
+  while(ci<creds.length&&di<debs.length){
+    const p=Math.min(creds[ci].amt,debs[di].amt);
+    if(p>0.5) settles.push({from:debs[di].name,to:creds[ci].name,amt:Math.round(p)});
+    creds[ci].amt-=p; debs[di].amt-=p;
+    if(creds[ci].amt<0.5)ci++; if(debs[di].amt<0.5)di++;
+  }
+  const sl = document.getElementById('settlementList');
+  sl.innerHTML = settles.length===0
+    ? `<div style="font-size:13px;color:var(--text-light);font-weight:600">${grandTotal>0?'✅ 費用已平衡':'尚無未結算費用'}</div>`
+    : settles.map(s=>`<div class="settle-row">
+        <span class="settle-from">${s.from}</span>
+        <span class="settle-arrow">→ 匯給 →</span>
+        <span class="settle-to">${s.to}</span>
+        <span class="settle-amt">NT$ ${s.amt.toLocaleString()}</span>
+      </div>`).join('');
+
+  // expense cards
+  const el = document.getElementById('expenseList');
+  if(sorted.length===0){
+    el.innerHTML=`<div class="empty-card">💳 點上方按鈕新增費用</div>`;
+    return;
+  }
+  el.innerHTML = sorted.map(exp=>{
+    const t = Number(exp.total)||0;
+    const p = Number(exp.perPerson)||0;
+    const sharers = exp.sharers && exp.sharers.length ? exp.sharers : MEMBERS;
+    const n = sharers.length;
+    const isSettled = !!exp.settled;
+
+    let amtsHtml = '';
+    if(t && !p){
+      const avgPer = Math.round(t/n);
+      amtsHtml = `
+        <div class="exp-amt-box"><div class="exp-amt-lbl">總費用</div><div class="exp-amt-val">NT$ ${t.toLocaleString()}</div></div>
+        <div class="exp-amt-box"><div class="exp-amt-lbl">平均每人</div><div class="exp-amt-val">NT$ ${avgPer.toLocaleString()}</div></div>`;
+    } else if(p && !t){
+      const estTotal = Math.round(p*n);
+      amtsHtml = `
+        <div class="exp-amt-box"><div class="exp-amt-lbl">每人費用</div><div class="exp-amt-val">NT$ ${p.toLocaleString()}</div></div>
+        <div class="exp-amt-box"><div class="exp-amt-lbl">預估總金額</div><div class="exp-amt-val">NT$ ${estTotal.toLocaleString()}</div></div>`;
+    } else if(t && p){
+      amtsHtml = `
+        <div class="exp-amt-box"><div class="exp-amt-lbl">總費用</div><div class="exp-amt-val">NT$ ${t.toLocaleString()}</div></div>
+        <div class="exp-amt-box"><div class="exp-amt-lbl">每人費用</div><div class="exp-amt-val">NT$ ${p.toLocaleString()}</div></div>`;
+    } else {
+      amtsHtml = `<div class="exp-amt-box"><div class="exp-amt-lbl">費用</div><div class="exp-amt-val">未填寫</div></div>`;
+    }
+
+    let choleHtml = '';
+    if(exp.choleComment){
+      choleHtml = `<div class="chole-bubble" style="margin-top:8px">
+        <div class="chole-who">
+          <span class="chole-tag-badge">留言</span>
+          <span class="chole-name-lbl">Chole</span>
+        </div>
+        <div class="chole-txt">${esc(exp.choleComment)}</div>
+        ${isChole?`<textarea class="chole-textarea" id="ct-exp-${exp.id}" rows="2">${esc(exp.choleComment)}</textarea>
+          <button class="chole-save-btn" onclick="saveCholeExp('${exp.id}')">更新</button>`:''}
+      </div>`;
+    } else if(isChole){
+      choleHtml=`
+      <button class="chole-add-btn" id="cbtn-exp-${exp.id}" onclick="showCholeExp('${exp.id}')">💬 Chole 留言</button>
+      <div id="cbox-exp-${exp.id}" style="display:none;margin-top:7px">
+        <textarea class="chole-textarea" id="ct-exp-${exp.id}" rows="2" placeholder="輸入留言..."></textarea>
+        <div style="display:flex;gap:5px;margin-top:5px">
+          <button class="chole-save-btn" style="flex:1" onclick="saveCholeExp('${exp.id}')">送出</button>
+          <button class="chole-save-btn" style="background:var(--sand);color:var(--text-mid)" onclick="hideCholeExp('${exp.id}')">取消</button>
+        </div>
+      </div>`;
+    }
+
+    const dayCls = DAYS[exp.day]?.ecls || 'ec-d0';
+    return `<div class="expense-card ${dayCls}${isSettled?' settled-card':''}">
+      <div class="exp-card-head">
+        <div class="exp-card-info">
+          <div class="exp-card-title"${isSettled?' style="opacity:0.45;text-decoration:line-through"':''}>${esc(exp.title)}</div>
+          <div class="exp-card-date">${DAYS[exp.day]?.label} · ${DAYS[exp.day]?.date}</div>
+        </div>
+        <div class="exp-card-actions" style="flex-direction:column;align-items:flex-end;gap:6px">
+          <div style="display:flex;gap:4px">
+            <button class="icon-btn edit" onclick="openEditExpense('${exp.id}')">✏️</button>
+            <button class="icon-btn del"  onclick="deleteExpense('${exp.id}')">🗑</button>
+          </div>
+          <div class="settled-inline${isSettled?' done':''}" onclick="toggleSettled('${exp.id}')">
+            <span class="settled-lbl">${isSettled?'已結算':'結算'}</span>
+            <div class="settled-check">${isSettled?'✓':''}</div>
+          </div>
+        </div>
+      </div>
+      <div class="exp-amounts"${isSettled?' style="opacity:0.4"':''}>${amtsHtml}</div>
+      <div class="exp-tags"${isSettled?' style="opacity:0.4"':''}>
+        <span class="exp-payer-tag">💳 ${exp.payer} 代墊</span>
+        <span class="exp-share-tag">👥 ${sharers.join('、')}</span>
+      </div>
+      ${exp.note ? `<div class="exp-note"${isSettled?' style="opacity:0.4"':''}>📝 ${esc(exp.note)}</div>` : ''}
+      ${choleHtml}
+    </div>`;
+  }).join('');
+}
+
+// ===== ADMIN =====
+window.toggleAdmin = function(){
+  if(isAdmin||isChole){
+    isAdmin=false; isChole=false;
+    document.getElementById('adminBtn').textContent='🔐 管理者';
+    document.getElementById('adminBtn').classList.remove('active');
+    renderAll(); showToast('已登出');
+  } else { openModal('pwModal'); }
+};
+window.verifyPw = function(){
+  const val = document.getElementById('pwInput').value;
+  document.getElementById('pwErr').style.display='none';
+  if(val==='grass'){
+    isAdmin=true; isChole=true;
+    document.getElementById('adminBtn').textContent='🔓 Grass';
+    document.getElementById('adminBtn').classList.add('active');
+    done('歡迎回來 Grass 🌟');
+  } else if(val==='chole'){
+    isChole=true; isAdmin=false;
+    document.getElementById('adminBtn').textContent='💬 Chole';
+    document.getElementById('adminBtn').classList.add('active');
+    done('嗨 Chole 🧡');
+  } else {
+    document.getElementById('pwErr').style.display='block';
+    document.getElementById('pwInput').value='';
+  }
+  function done(msg){
+    document.getElementById('pwInput').value='';
+    closeModal('pwModal'); renderAll(); showToast(msg);
+  }
+};
+
+// ===== EVENT CRUD =====
+window.openEventModal = function(dayIdx){
+  editEvId=null;
+  document.getElementById('eventModalTitle').textContent='✨ 新增行程';
+  document.getElementById('evDay').value=dayIdx;
+  document.getElementById('evTime').value='09:00';
+  ['evTitle','evLocation','evMapUrl','evNote','evCost'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('linksList').innerHTML='';
+  addLink();
+  openModal('eventModal');
+};
+window.openEditEvent = function(id){
+  const ev=events.find(e=>e.id===id); if(!ev)return;
+  editEvId=id;
+  document.getElementById('eventModalTitle').textContent='✏️ 編輯行程';
+  document.getElementById('evDay').value=ev.day;
+  document.getElementById('evTime').value=ev.time||'';
+  document.getElementById('evTitle').value=ev.title||'';
+  document.getElementById('evLocation').value=ev.location||'';
+  document.getElementById('evMapUrl').value=ev.mapUrl||'';
+  document.getElementById('evNote').value=ev.note||'';
+  document.getElementById('evCost').value=ev.cost||'';
+  document.getElementById('linksList').innerHTML='';
+  (ev.links&&ev.links.length?ev.links:[{label:'',url:''}]).forEach(l=>addLink(l.label,l.url));
+  openModal('eventModal');
+};
+window.saveEvent = async function(){
+  const title=document.getElementById('evTitle').value.trim();
+  if(!title){showToast('請填寫行程標題');return;}
+  const links=[...document.querySelectorAll('.link-row')].map(r=>({
+    label:r.querySelector('.ll').value.trim(), url:r.querySelector('.lu').value.trim()
+  })).filter(l=>l.url);
+  const data={
+    day:+document.getElementById('evDay').value,
+    time:document.getElementById('evTime').value, title,
+    location:document.getElementById('evLocation').value.trim(),
+    mapUrl:document.getElementById('evMapUrl').value.trim(),
+    note:document.getElementById('evNote').value.trim(),
+    cost:document.getElementById('evCost').value,
+    links, updatedAt:Date.now()
+  };
+  if(useLocal){
+    if(editEvId){const i=events.findIndex(e=>e.id===editEvId);if(i!==-1)events[i]={...events[i],...data};}
+    else events.push({id:'l_'+Date.now(),...data});
+    saveLocal(); renderItinerary();
+  } else {
+    if(editEvId) await update(ref(db,`events/${editEvId}`),data);
+    else await push(ref(db,'events'),data);
+  }
+  closeModal('eventModal'); showToast(editEvId?'行程已更新 ✓':'行程已新增 ✓');
+};
+window.deleteEvent = async function(id){
+  if(!confirm('確定要刪除此行程？'))return;
+  if(useLocal){events=events.filter(e=>e.id!==id);saveLocal();renderItinerary();}
+  else await remove(ref(db,`events/${id}`));
+  showToast('已刪除');
+};
+window.addLink = function(label='',url=''){
+  const list=document.getElementById('linksList'),row=document.createElement('div');
+  row.className='link-row';
+  row.innerHTML=`<input class="form-inp ll" type="text" placeholder="連結名稱" value="${label}" style="max-width:90px">
+    <input class="form-inp lu" type="url" placeholder="https://..." value="${url}">
+    <button class="btn-link-rm" onclick="this.parentElement.remove()">✕</button>`;
+  list.appendChild(row);
+};
+
+// ===== EXPENSE CRUD =====
+function buildExpenseModal(exp){
+  // Payer select
+  const payerSel = document.getElementById('expPayer');
+  payerSel.innerHTML = MEMBERS.map(m=>`<option value="${m}">${m}</option>`).join('');
+  // Sharer toggles
+  const sharersEl = document.getElementById('expSharers');
+  const selected = exp ? (exp.sharers||MEMBERS) : MEMBERS;
+  sharersEl.innerHTML = MEMBERS.map(m=>`
+    <button type="button" class="member-toggle ${selected.includes(m)?'on':''}"
+      onclick="this.classList.toggle('on')">${m}</button>`).join('');
+  if(exp){
+    document.getElementById('expDay').value=exp.day;
+    document.getElementById('expTitle').value=exp.title||'';
+    document.getElementById('expTotal2').value=exp.total||'';
+    document.getElementById('expPer2').value=exp.perPerson||'';
+    document.getElementById('expNote').value=exp.note||'';
+    payerSel.value=exp.payer||'Grass';
+  } else {
+    document.getElementById('expDay').value=0;
+    ['expTitle','expTotal2','expPer2','expNote'].forEach(id=>document.getElementById(id).value='');
+    payerSel.value='Grass';
+  }
+  document.getElementById('expAmtHint').textContent='';
+}
+window.openExpenseModal = function(){
+  editExpId=null;
+  document.getElementById('expenseModalTitle').textContent='💳 新增費用';
+  buildExpenseModal(null);
+  openModal('expenseModal');
+};
+window.openEditExpense = function(id){
+  const exp=expenses.find(e=>e.id===id); if(!exp)return;
+  editExpId=id;
+  document.getElementById('expenseModalTitle').textContent='✏️ 編輯費用';
+  buildExpenseModal(exp);
+  openModal('expenseModal');
+};
+window.calcExpAmt = function(){
+  const t=Number(document.getElementById('expTotal2').value)||0;
+  const p=Number(document.getElementById('expPer2').value)||0;
+  const sharers=[...document.querySelectorAll('#expSharers .member-toggle.on')].map(b=>b.textContent);
+  const n=sharers.length||MEMBERS.length;
+  const hint=document.getElementById('expAmtHint');
+  if(t&&!p) hint.textContent=`→ 平均每人 NT$ ${Math.round(t/n).toLocaleString()}`;
+  else if(p&&!t) hint.textContent=`→ 預估總金額 NT$ ${Math.round(p*n).toLocaleString()}`;
+  else hint.textContent='';
+};
+window.saveExpense = async function(){
+  const title=document.getElementById('expTitle').value.trim();
+  if(!title){showToast('請填寫費用名稱');return;}
+  const sharers=[...document.querySelectorAll('#expSharers .member-toggle.on')].map(b=>b.textContent);
+  if(!sharers.length){showToast('請選擇至少一位平攤費用人');return;}
+  const data={
+    day:+document.getElementById('expDay').value, title,
+    total:document.getElementById('expTotal2').value,
+    perPerson:document.getElementById('expPer2').value,
+    payer:document.getElementById('expPayer').value,
+    sharers,
+    note:document.getElementById('expNote').value.trim(),
+    updatedAt:Date.now()
+  };
+  if(useLocal){
+    if(editExpId){const i=expenses.findIndex(e=>e.id===editExpId);if(i!==-1)expenses[i]={...expenses[i],...data};}
+    else expenses.push({id:'l_'+Date.now(),...data});
+    saveLocal(); renderExpenses();
+  } else {
+    if(editExpId) await update(ref(db,`expenses/${editExpId}`),data);
+    else await push(ref(db,'expenses'),data);
+  }
+  closeModal('expenseModal'); showToast(editExpId?'費用已更新 ✓':'費用已新增 ✓');
+};
+window.deleteExpense = async function(id){
+  if(!confirm('確定要刪除此費用？'))return;
+  if(useLocal){expenses=expenses.filter(e=>e.id!==id);saveLocal();renderExpenses();}
+  else await remove(ref(db,`expenses/${id}`));
+  showToast('已刪除');
+};
+
+// ===== SETTLED =====
+window.toggleSettled = async function(id){
+  const i = expenses.findIndex(e=>e.id===id); if(i===-1)return;
+  const newVal = !expenses[i].settled;
+  if(useLocal){
+    expenses[i].settled = newVal; saveLocal(); renderExpenses();
+  } else {
+    await update(ref(db,`expenses/${id}`),{settled:newVal});
+  }
+  showToast(newVal?'已標記為結算 ✓':'已取消結算');
+};
+
+// ===== CHOLE =====
+window.showCholeEv  = id=>{ document.getElementById(`cbtn-ev-${id}`).style.display='none'; document.getElementById(`cbox-ev-${id}`).style.display='block'; };
+window.hideCholeEv  = id=>{ document.getElementById(`cbtn-ev-${id}`).style.display='inline-flex'; document.getElementById(`cbox-ev-${id}`).style.display='none'; };
+window.saveCholeEv  = async function(id){
+  const val=document.getElementById(`ct-ev-${id}`)?.value?.trim(); if(!val)return;
+  if(useLocal){const i=events.findIndex(e=>e.id===id);if(i!==-1){events[i].choleComment=val;saveLocal();renderItinerary();}}
+  else await update(ref(db,`events/${id}`),{choleComment:val});
+  showToast('Chole 留言已儲存 🧡');
+};
+window.showCholeExp = id=>{ document.getElementById(`cbtn-exp-${id}`).style.display='none'; document.getElementById(`cbox-exp-${id}`).style.display='block'; };
+window.hideCholeExp = id=>{ document.getElementById(`cbtn-exp-${id}`).style.display='inline-flex'; document.getElementById(`cbox-exp-${id}`).style.display='none'; };
+window.saveCholeExp = async function(id){
+  const val=document.getElementById(`ct-exp-${id}`)?.value?.trim(); if(!val)return;
+  if(useLocal){const i=expenses.findIndex(e=>e.id===id);if(i!==-1){expenses[i].choleComment=val;saveLocal();renderExpenses();}}
+  else await update(ref(db,`expenses/${id}`),{choleComment:val});
+  showToast('Chole 留言已儲存 🧡');
+};
+
+// ===== UI =====
+window.switchTab = function(tab){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',['itinerary','expense'][i]===tab));
+  document.getElementById('tabItinerary').style.display=tab==='itinerary'?'block':'none';
+  document.getElementById('tabExpense').style.display=tab==='expense'?'block':'none';
+};
+window.openModal  = id=>{ document.getElementById(id).classList.add('show'); document.body.classList.add('no-scroll'); };
+window.closeModal = id=>{ document.getElementById(id).classList.remove('show'); document.body.classList.remove('no-scroll'); };
+function showToast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2400); }
+function esc(s=''){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{ if(e.target===o) closeModal(o.id); }));
+</script>
+</body>
+</html>
