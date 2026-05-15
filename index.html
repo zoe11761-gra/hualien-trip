@@ -163,17 +163,19 @@ body {
 
 /* day filter bar */
 .day-filter {
-  display: flex; gap: 7px; padding: 12px 14px 4px; flex-wrap: nowrap;
+  display: flex; gap: 8px; padding: 12px 14px 6px;
 }
 .day-filter-btn {
-  flex: 1; padding: 7px 6px; border-radius: 20px;
-  border: 1.5px solid var(--border); background: var(--warm-white);
-  font-family: inherit; font-size: 12px; font-weight: 700;
+  flex: 1; padding: 6px 4px; border-radius: 12px;
+  border: none; background: var(--sand);
+  font-family: inherit; font-size: 13px; font-weight: 800;
   color: var(--text-light); cursor: pointer; transition: all 0.18s;
-  text-align: center; white-space: nowrap;
+  text-align: center;
 }
-.day-filter-btn.active { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
-.day-filter-btn.active.f2 { background: var(--rust); border-color: var(--rust); }
+.day-filter-btn.f-all.active { background: var(--teal-dark); color: #fff; }
+.day-filter-btn.f0.active    { background: var(--teal);      color: #fff; }
+.day-filter-btn.f1.active    { background: var(--rust);      color: #fff; }
+.day-filter-btn.f2.active    { background: var(--teal-dark); color: #fff; }
 
 /* ===== DAY BLOCK ===== */
 .day-block { margin-bottom: 26px; }
@@ -590,14 +592,13 @@ body.no-scroll { overflow: hidden; }
   <!-- ITINERARY TAB -->
   <div id="tabItinerary">
     <div class="day-filter">
-      <button class="day-filter-btn active" onclick="filterDay(-1, this)">全部</button>
-      <button class="day-filter-btn" onclick="filterDay(0, this)">5/20</button>
-      <button class="day-filter-btn f2" onclick="filterDay(1, this)">5/21</button>
-      <button class="day-filter-btn" onclick="filterDay(2, this)">5/22</button>
-      ${/* admin add button placeholder - rendered by JS */``}
+      <button class="day-filter-btn f-all active" onclick="filterDay(-1, this)">全部</button>
+      <button class="day-filter-btn f0" onclick="filterDay(0, this)">Day 1</button>
+      <button class="day-filter-btn f1" onclick="filterDay(1, this)">Day 2</button>
+      <button class="day-filter-btn f2" onclick="filterDay(2, this)">Day 3</button>
     </div>
-    <div id="adminAddRow" style="display:none;padding:0 14px 8px">
-      <button class="day-add-btn" style="margin-left:0;width:100%;text-align:center" onclick="openEventModal(window._filterDay>=0?window._filterDay:0)">＋ 新增行程</button>
+    <div id="adminAddRow" style="display:none;padding:0 14px 6px">
+      <button class="day-add-btn" style="margin-left:0;width:100%;text-align:center" onclick="openEventModal()">＋ 新增行程</button>
     </div>
     <div class="content" id="itineraryContainer"></div>
   </div>
@@ -922,7 +923,7 @@ function renderEventCard(ev, cls){
         <button class="icon-btn del"  onclick="deleteEvent('${ev.id}')">🗑</button>
       </div>` : ''}
     </div>
-    ${ev.note ? `<div class="event-note">📝 ${esc(ev.note)}</div>` : ''}
+    ${ev.note ? `<div class="event-note">${esc(ev.note)}</div>` : ''}
     ${ev.cost ? `<div class="event-cost-tag">💴 預計 NT$ ${Number(ev.cost).toLocaleString()}</div>` : ''}
     ${links ? `<div class="event-links">${links}</div>` : ''}
     ${choleHtml}
