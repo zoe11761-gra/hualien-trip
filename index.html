@@ -111,13 +111,20 @@ body {
 .header-inner { position: relative; z-index: 2; padding: 16px 18px 0; }
 .header-top {
   display: flex; align-items: flex-start; justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
+}
+.header-top-row {
+  display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px;
 }
 .header-year {
   font-size: 10px; font-weight: 800; letter-spacing: 4px;
-  color: var(--teal); text-transform: uppercase; margin-bottom: 3px;
+  color: var(--teal); text-transform: uppercase;
 }
-.header-name { font-size: 22px; font-weight: 900; line-height: 1.2; }
+.header-date-inline {
+  font-size: 10px; font-weight: 700; letter-spacing: 1px;
+  color: var(--text-light);
+}
+.header-name { font-size: 22px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; }
 .header-name .hn1 { color: var(--text); }
 .header-name .hn2 { color: var(--teal-dark); }
 .header-meta {
@@ -150,7 +157,33 @@ body {
 .tab-btn.active { color: var(--teal-dark); border-bottom-color: var(--teal-dark); }
 
 /* ===== CONTENT ===== */
-.content { padding: 16px 14px 50px; }
+.content { padding: 16px 14px 50px; position: relative; }
+
+/* ghost blobs — very subtle background decoration */
+.content::before {
+  content: ''; position: fixed;
+  top: 120px; right: -60px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(125,157,156,0.07) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+.content::after {
+  content: ''; position: fixed;
+  bottom: 80px; left: -60px;
+  width: 200px; height: 200px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(87,111,114,0.06) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+/* ghost blob mid */
+.content-ghost-mid {
+  position: fixed; top: 45%; right: -40px;
+  width: 130px; height: 130px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(228,220,207,0.35) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+/* all cards sit above ghost layer */
+.day-block, .event-card, .expense-card, .settlement-card,
+.empty-card, .add-expense-btn { position: relative; z-index: 1; }
 
 /* ===== DAY BLOCK ===== */
 .day-block { margin-bottom: 26px; }
@@ -331,8 +364,8 @@ body {
 .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 .exp-payer-tag {
   display: inline-flex; align-items: center; gap: 3px;
-  background: var(--teal-pale); border-radius: 20px;
-  padding: 3px 10px; font-size: 11px; font-weight: 700; color: var(--teal-dark);
+  background: var(--sand); border-radius: 8px;
+  padding: 6px 11px; font-size: 11px; font-weight: 700; color: var(--text);
 }
 .exp-share-tag {
   display: inline-flex; align-items: center; gap: 3px;
@@ -540,12 +573,14 @@ body.no-scroll { overflow: hidden; }
     <div class="header-inner">
       <div class="header-top">
         <div>
-          <div class="header-year">2026</div>
+          <div class="header-top-row">
+            <div class="header-year">2026</div>
+            <div class="header-date-inline">May 20 – 22</div>
+          </div>
           <div class="header-name"><span class="hn1">Hualien</span> <span class="hn2">Chill Trip</span></div>
         </div>
       </div>
       <div class="header-meta">
-        <div class="meta-pill">May 20 – 22</div>
         <button class="admin-btn" id="adminBtn" onclick="toggleAdmin()">🔐 管理者</button>
       </div>
       <div class="tabs">
@@ -554,6 +589,9 @@ body.no-scroll { overflow: hidden; }
       </div>
     </div>
   </div>
+
+  <!-- ghost decoration -->
+  <div class="content-ghost-mid"></div>
 
   <!-- ITINERARY TAB -->
   <div class="content" id="tabItinerary">
@@ -983,7 +1021,10 @@ function renderExpenses(){
       </div>
       <div class="exp-amounts"${isSettled?' style="opacity:0.4"':''}>
         ${amtsHtml}
-        <span class="exp-payer-tag" style="align-self:center">💳 ${exp.payer}</span>
+        <span class="exp-payer-tag" style="align-self:center;flex-direction:column;gap:1px">
+          <span style="font-size:10px;font-weight:700;color:var(--text-light)">代墊</span>
+          <span style="font-size:14px;font-weight:900;color:var(--text)">${exp.payer}</span>
+        </span>
       </div>
       <div class="exp-tags"${isSettled?' style="opacity:0.4"':''}>
         <span class="exp-share-tag">👥 ${sharers.join('、')}</span>
