@@ -172,7 +172,6 @@ body {
   color: var(--text-light); cursor: pointer; transition: all 0.18s;
   text-align: center;
 }
-.day-filter-btn.f-all.active { background: var(--teal-dark); color: #fff; }
 .day-filter-btn.f0.active    { background: var(--teal);      color: #fff; }
 .day-filter-btn.f1.active    { background: var(--rust);      color: #fff; }
 .day-filter-btn.f2.active    { background: var(--teal-dark); color: #fff; }
@@ -592,8 +591,7 @@ body.no-scroll { overflow: hidden; }
   <!-- ITINERARY TAB -->
   <div id="tabItinerary">
     <div class="day-filter">
-      <button class="day-filter-btn f-all active" onclick="filterDay(-1, this)">全部</button>
-      <button class="day-filter-btn f0" onclick="filterDay(0, this)">Day 1</button>
+      <button class="day-filter-btn f0 active" onclick="filterDay(0, this)">Day 1</button>
       <button class="day-filter-btn f1" onclick="filterDay(1, this)">Day 2</button>
       <button class="day-filter-btn f2" onclick="filterDay(2, this)">Day 3</button>
     </div>
@@ -838,8 +836,8 @@ function seedSample(){
   saveLocal();
 }
 
-let _filterDay = -1; // -1 = all
-window._filterDay = -1;
+let _filterDay = 0;
+window._filterDay = 0;
 
 window.filterDay = function(day, btn) {
   _filterDay = day;
