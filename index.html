@@ -161,67 +161,6 @@ body {
 .day-block, .event-card, .expense-card, .settlement-card,
 .empty-card, .add-expense-btn { position: relative; z-index: 1; }
 
-/* ===== SHAPE DECORATIONS ===== */
-/* Small geometric shapes scattered in the background */
-.deco-shapes {
-  position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  overflow: hidden; max-width: 480px;
-}
-/* individual shapes via pseudo-elements on body */
-.deco-shapes::before, .deco-shapes::after { content: ''; position: absolute; }
-
-/* shape 1: small teal circle top-right */
-.shape-1 {
-  position: absolute; top: 180px; right: 18px;
-  width: 28px; height: 28px; border-radius: 50%;
-  background: var(--teal-pale); border: 2px solid var(--teal-light);
-}
-/* shape 2: rust small square rotated, bottom-left */
-.shape-2 {
-  position: absolute; top: 420px; left: 14px;
-  width: 18px; height: 18px; border-radius: 4px;
-  background: var(--rust-light); border: 2px solid #d9a090;
-  transform: rotate(20deg);
-}
-/* shape 3: sage small circle mid-right */
-.shape-3 {
-  position: absolute; top: 640px; right: 22px;
-  width: 22px; height: 22px; border-radius: 50%;
-  background: var(--sage-light); border: 2px solid #a8c8aa;
-}
-/* shape 4: clay tiny diamond lower-left */
-.shape-4 {
-  position: absolute; top: 860px; left: 20px;
-  width: 16px; height: 16px; border-radius: 3px;
-  background: var(--clay-light); border: 2px solid #c8a87a;
-  transform: rotate(45deg);
-}
-/* shape 5: teal small pill top-left below header */
-.shape-5 {
-  position: absolute; top: 300px; left: 10px;
-  width: 10px; height: 26px; border-radius: 10px;
-  background: var(--teal-light); opacity: 0.6;
-}
-/* shape 6: rust tiny circle mid */
-.shape-6 {
-  position: absolute; top: 750px; right: 16px;
-  width: 14px; height: 14px; border-radius: 50%;
-  background: var(--rust-light); border: 2px solid #d9a090; opacity: 0.8;
-}
-/* shape 7: sage pill lower-right */
-.shape-7 {
-  position: absolute; top: 1050px; right: 20px;
-  width: 10px; height: 24px; border-radius: 10px;
-  background: var(--sage-light); opacity: 0.65;
-}
-/* shape 8: small teal square upper area */
-.shape-8 {
-  position: absolute; top: 500px; right: 14px;
-  width: 14px; height: 14px; border-radius: 3px;
-  background: var(--teal-pale); border: 2px solid var(--teal-light);
-  transform: rotate(12deg);
-}
-
 /* ===== DAY BLOCK ===== */
 .day-block { margin-bottom: 26px; }
 .day-label {
@@ -399,20 +338,17 @@ body {
   background: var(--sand); border-radius: 8px; padding: 7px 12px;
   min-width: 88px; flex: 1;
 }
-.exp-amt-box.payer-box {
-  background: var(--teal-pale);
-}
-.exp-amt-box.per-box {
-  background: var(--sage-light);
-}
+.exp-amt-box.total-box { background: var(--rust-light); }
+.exp-amt-box.per-box   { background: var(--sand); }
+.exp-amt-box.payer-box { background: var(--teal-pale); }
 .exp-amt-lbl { font-size: 10px; font-weight: 700; color: var(--text-light); }
 .exp-amt-val { font-size: 14px; font-weight: 900; color: var(--text); }
 
 .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 .exp-share-tag {
   display: inline-flex; align-items: center; gap: 3px;
-  background: var(--sand); border-radius: 20px;
-  padding: 3px 10px; font-size: 11px; font-weight: 700; color: var(--text-mid);
+  background: #fde8d8; border-radius: 20px;
+  padding: 3px 10px; font-size: 11px; font-weight: 700; color: #b06030;
 }
 .exp-note {
   font-size: 12px; color: var(--text-mid); line-height: 1.5;
@@ -632,18 +568,6 @@ body.no-scroll { overflow: hidden; }
     </div>
   </div>
 
-  <!-- shape decorations -->
-  <div class="deco-shapes">
-    <div class="shape-1"></div>
-    <div class="shape-2"></div>
-    <div class="shape-3"></div>
-    <div class="shape-4"></div>
-    <div class="shape-5"></div>
-    <div class="shape-6"></div>
-    <div class="shape-7"></div>
-    <div class="shape-8"></div>
-  </div>
-
   <!-- ITINERARY TAB -->
   <div class="content" id="tabItinerary">
     <div id="itineraryContainer"></div>
@@ -671,9 +595,9 @@ body.no-scroll { overflow: hidden; }
       <div class="form-grp">
         <label class="form-lbl">日期 <span class="req">*</span></label>
         <select class="form-sel" id="evDay">
-          <option value="0">Day 1 · 5/20 (Wed)</option>
-          <option value="1">Day 2 · 5/21 (Thu)</option>
-          <option value="2">Day 3 · 5/22 (Fri)</option>
+          <option value="0">Day 1 · 5/20 (Wed.)</option>
+          <option value="1">Day 2 · 5/21 (Thu.)</option>
+          <option value="2">Day 3 · 5/22 (Fri.)</option>
         </select>
       </div>
       <div class="form-grp">
@@ -724,9 +648,9 @@ body.no-scroll { overflow: hidden; }
       <div class="form-grp">
         <label class="form-lbl">日期 <span class="req">*</span></label>
         <select class="form-sel" id="expDay">
-          <option value="0">5/20 (Wed)</option>
-          <option value="1">5/21 (Thu)</option>
-          <option value="2">5/22 (Fri)</option>
+          <option value="0">5/20 (Wed.)</option>
+          <option value="1">5/21 (Thu.)</option>
+          <option value="2">5/22 (Fri.)</option>
         </select>
       </div>
       <div class="form-grp">
@@ -824,9 +748,9 @@ const firebaseConfig = {
 
 const MEMBERS = ['Grass','Jolin','John','Cody','Helen','Paul'];
 const DAYS = [
-  { label:'Day 1', date:'5/20 Wed', cls:'day1', ecls:'ec-d0' },
-  { label:'Day 2', date:'5/21 Thu', cls:'day2', ecls:'ec-d1' },
-  { label:'Day 3', date:'5/22 Fri', cls:'day3', ecls:'ec-d2' },
+  { label:'Day 1', date:'5/20 Wed.', cls:'day1', ecls:'ec-d0' },
+  { label:'Day 2', date:'5/21 Thu.', cls:'day2', ecls:'ec-d1' },
+  { label:'Day 3', date:'5/22 Fri.', cls:'day3', ecls:'ec-d2' },
 ];
 
 let db, useLocal = true;
@@ -1015,18 +939,18 @@ function renderExpenses(){
     if(t && !p){
       const avgPer = Math.round(t/n);
       amtsHtml = `
-        <div class="exp-amt-box"><div class="exp-amt-lbl">總費用</div><div class="exp-amt-val">NT$ ${t.toLocaleString()}</div></div>
+        <div class="exp-amt-box total-box"><div class="exp-amt-lbl">總費用</div><div class="exp-amt-val">NT$ ${t.toLocaleString()}</div></div>
         <div class="exp-amt-box per-box"><div class="exp-amt-lbl">平均每人</div><div class="exp-amt-val">NT$ ${avgPer.toLocaleString()}</div></div>
         ${payerBox}`;
     } else if(p && !t){
       const estTotal = Math.round(p*n);
       amtsHtml = `
         <div class="exp-amt-box per-box"><div class="exp-amt-lbl">每人費用</div><div class="exp-amt-val">NT$ ${p.toLocaleString()}</div></div>
-        <div class="exp-amt-box"><div class="exp-amt-lbl">預估總金額</div><div class="exp-amt-val">NT$ ${estTotal.toLocaleString()}</div></div>
+        <div class="exp-amt-box total-box"><div class="exp-amt-lbl">預估總金額</div><div class="exp-amt-val">NT$ ${estTotal.toLocaleString()}</div></div>
         ${payerBox}`;
     } else if(t && p){
       amtsHtml = `
-        <div class="exp-amt-box"><div class="exp-amt-lbl">總費用</div><div class="exp-amt-val">NT$ ${t.toLocaleString()}</div></div>
+        <div class="exp-amt-box total-box"><div class="exp-amt-lbl">總費用</div><div class="exp-amt-val">NT$ ${t.toLocaleString()}</div></div>
         <div class="exp-amt-box per-box"><div class="exp-amt-lbl">每人費用</div><div class="exp-amt-val">NT$ ${p.toLocaleString()}</div></div>
         ${payerBox}`;
     } else {
