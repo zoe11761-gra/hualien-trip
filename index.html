@@ -159,26 +159,26 @@ body {
 /* ===== CONTENT ===== */
 .content { padding: 16px 14px 50px; position: relative; }
 
-/* ghost blobs — very subtle background decoration */
+/* ghost blobs — visible but calm */
 .content::before {
   content: ''; position: fixed;
-  top: 120px; right: -60px;
-  width: 220px; height: 220px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(125,157,156,0.07) 0%, transparent 70%);
+  top: 100px; right: -70px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(125,157,156,0.22) 0%, transparent 65%);
   pointer-events: none; z-index: 0;
 }
 .content::after {
   content: ''; position: fixed;
-  bottom: 80px; left: -60px;
-  width: 200px; height: 200px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(87,111,114,0.06) 0%, transparent 70%);
+  bottom: 60px; left: -70px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(87,111,114,0.18) 0%, transparent 65%);
   pointer-events: none; z-index: 0;
 }
 /* ghost blob mid */
 .content-ghost-mid {
-  position: fixed; top: 45%; right: -40px;
-  width: 130px; height: 130px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(228,220,207,0.35) 0%, transparent 70%);
+  position: fixed; top: 42%; right: -50px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(228,220,207,0.55) 0%, transparent 65%);
   pointer-events: none; z-index: 0;
 }
 /* all cards sit above ghost layer */
@@ -363,9 +363,9 @@ body {
 
 .exp-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
 .exp-payer-tag {
-  display: inline-flex; align-items: center; gap: 3px;
-  background: var(--sand); border-radius: 8px;
-  padding: 6px 11px; font-size: 11px; font-weight: 700; color: var(--text);
+  display: inline-flex; flex-direction: column; align-items: flex-start;
+  background: var(--teal-pale); border-radius: 8px;
+  padding: 6px 11px; gap: 1px;
 }
 .exp-share-tag {
   display: inline-flex; align-items: center; gap: 3px;
