@@ -161,6 +161,20 @@ body {
 .day-block, .event-card, .expense-card, .settlement-card,
 .empty-card, .add-expense-btn { position: relative; z-index: 1; }
 
+/* day filter bar */
+.day-filter {
+  display: flex; gap: 7px; padding: 12px 14px 4px; flex-wrap: nowrap;
+}
+.day-filter-btn {
+  flex: 1; padding: 7px 6px; border-radius: 20px;
+  border: 1.5px solid var(--border); background: var(--warm-white);
+  font-family: inherit; font-size: 12px; font-weight: 700;
+  color: var(--text-light); cursor: pointer; transition: all 0.18s;
+  text-align: center; white-space: nowrap;
+}
+.day-filter-btn.active { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
+.day-filter-btn.active.f2 { background: var(--rust); border-color: var(--rust); }
+
 /* ===== DAY BLOCK ===== */
 .day-block { margin-bottom: 26px; }
 .day-label {
@@ -238,6 +252,7 @@ body {
   font-size: 12px; color: var(--text-mid); line-height: 1.5;
   margin-top: 7px; padding: 7px 10px;
   background: var(--sand); border-radius: 8px;
+  white-space: pre-wrap; word-break: break-word;
 }
 .event-cost-tag {
   display: inline-flex; align-items: center; gap: 4px;
@@ -573,8 +588,18 @@ body.no-scroll { overflow: hidden; }
   </div>
 
   <!-- ITINERARY TAB -->
-  <div class="content" id="tabItinerary">
-    <div id="itineraryContainer"></div>
+  <div id="tabItinerary">
+    <div class="day-filter">
+      <button class="day-filter-btn active" onclick="filterDay(-1, this)">全部</button>
+      <button class="day-filter-btn" onclick="filterDay(0, this)">5/20</button>
+      <button class="day-filter-btn f2" onclick="filterDay(1, this)">5/21</button>
+      <button class="day-filter-btn" onclick="filterDay(2, this)">5/22</button>
+      ${/* admin add button placeholder - rendered by JS */``}
+    </div>
+    <div id="adminAddRow" style="display:none;padding:0 14px 8px">
+      <button class="day-add-btn" style="margin-left:0;width:100%;text-align:center" onclick="openEventModal(window._filterDay>=0?window._filterDay:0)">＋ 新增行程</button>
+    </div>
+    <div class="content" id="itineraryContainer"></div>
   </div>
 
   <!-- EXPENSE TAB -->
@@ -812,20 +837,35 @@ function seedSample(){
   saveLocal();
 }
 
-function renderAll(){ renderItinerary(); renderExpenses(); }
+let _filterDay = -1; // -1 = all
+window._filterDay = -1;
+
+window.filterDay = function(day, btn) {
+  _filterDay = day;
+  window._filterDay = day;
+  document.querySelectorAll('.day-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderItinerary();
+};
 
 // ===== ITINERARY =====
 function renderItinerary(){
+  // show/hide admin add row
+  const addRow = document.getElementById('adminAddRow');
+  if(addRow) addRow.style.display = isAdmin ? 'block' : 'none';
+
   const c = document.getElementById('itineraryContainer');
   let html = '';
-  DAYS.forEach((day,di)=>{
+  const daysToShow = _filterDay >= 0 ? [_filterDay] : [0,1,2];
+
+  daysToShow.forEach(di=>{
+    const day = DAYS[di];
     const dayEvs = events.filter(e=>e.day==di).sort((a,b)=>(a.time||'').localeCompare(b.time||''));
     const badgeCls = ['d1','d2','d3'][di];
     html += `<div class="day-block">
       <div class="day-label">
         <div class="day-badge ${badgeCls}">${day.label}</div>
         <div class="day-date-txt">${day.date}</div>
-        ${isAdmin ? `<button class="day-add-btn" onclick="openEventModal(${di})">＋ 新增</button>` : ''}
       </div>`;
     if(dayEvs.length===0){
       html+=`<div class="empty-card">🗺️ 尚無行程</div>`;
@@ -836,6 +876,8 @@ function renderItinerary(){
   });
   c.innerHTML = html;
 }
+
+function renderAll(){ renderItinerary(); renderExpenses(); }
 
 function renderEventCard(ev, cls){
   const links = (ev.links||[]).filter(l=>l.url).map(l=>
@@ -870,7 +912,10 @@ function renderEventCard(ev, cls){
       <div class="event-time">${ev.time||'--:--'}</div>
       <div class="event-body">
         <div class="event-title">${esc(ev.title)}</div>
-        ${ev.location ? `<a class="event-location" href="${ev.mapUrl||'#'}" target="_blank">📍 ${esc(ev.location)}</a>` : ''}
+        ${ev.location ? (ev.mapUrl
+          ? `<a class="event-location" href="${ev.mapUrl}" target="_blank">📍 ${esc(ev.location)}</a>`
+          : `<span class="event-location" style="cursor:default;text-decoration:none">📍 ${esc(ev.location)}</span>`)
+        : ''}
       </div>
       ${isAdmin ? `<div class="event-inline-actions">
         <button class="icon-btn edit" onclick="openEditEvent('${ev.id}')">✏️</button>
@@ -1052,7 +1097,7 @@ window.verifyPw = function(){
 window.openEventModal = function(dayIdx){
   editEvId=null;
   document.getElementById('eventModalTitle').textContent='✨ 新增行程';
-  document.getElementById('evDay').value=dayIdx;
+  document.getElementById('evDay').value = dayIdx !== undefined ? dayIdx : (_filterDay >= 0 ? _filterDay : 0);
   document.getElementById('evTime').value='09:00';
   ['evTitle','evLocation','evMapUrl','evNote','evCost'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('linksList').innerHTML='';
