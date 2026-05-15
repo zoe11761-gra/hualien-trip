@@ -106,13 +106,13 @@ body {
   width: 80px; height: 80px; border-radius: 50%;
   background: radial-gradient(circle, rgba(228,220,207,0.6) 0%, transparent 70%);
 }
-.header-inner { position: relative; z-index: 2; padding: 16px 18px 0; }
+.header-inner { position: relative; z-index: 2; padding: 12px 18px 0; }
 .header-top {
   display: flex; align-items: flex-start; justify-content: space-between;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 .header-top-row {
-  display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px;
+  display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px;
 }
 .header-year {
   font-size: 10px; font-weight: 800; letter-spacing: 4px;
@@ -122,7 +122,7 @@ body {
   font-size: 10px; font-weight: 700; letter-spacing: 1px;
   color: var(--text-light);
 }
-.header-name { font-size: 22px; font-weight: 900; line-height: 1.2; margin-bottom: 10px; }
+.header-name { font-size: 22px; font-weight: 900; line-height: 1.2; margin-bottom: 8px; }
 .header-name .hn1 { color: var(--text); }
 .header-name .hn2 { color: var(--teal-dark); }
 .header-meta {
@@ -137,11 +137,11 @@ body {
 .meta-year { color: var(--teal-dark); font-weight: 900; }
 .meta-sep { color: var(--teal-light); font-size: 10px; }
 .admin-btn {
-  margin-left: auto;
+  margin-left: auto; align-self: flex-start; margin-top: 2px;
   background: var(--sand); border: 1.5px solid var(--sand-dark);
   border-radius: 20px; padding: 4px 12px;
   font-size: 11px; font-weight: 800; color: var(--teal-dark);
-  cursor: pointer; font-family: inherit; transition: all 0.2s;
+  cursor: pointer; font-family: inherit; transition: all 0.2s; flex-shrink: 0;
 }
 .admin-btn:hover { background: var(--teal-pale); border-color: var(--teal); }
 .admin-btn.active { background: var(--teal-pale); border-color: var(--teal); color: var(--teal-dark); }
@@ -338,8 +338,8 @@ body {
   background: var(--sand); border-radius: 8px; padding: 7px 12px;
   min-width: 88px; flex: 1;
 }
-.exp-amt-box.total-box { background: var(--sand); }
-.exp-amt-box.per-box   { background: var(--sand); }
+.exp-amt-box.total-box { background: var(--sage-light); }
+.exp-amt-box.per-box   { background: var(--sage-light); }
 .exp-amt-box.payer-box { background: var(--rust-light); }
 .exp-amt-lbl { font-size: 10px; font-weight: 700; color: var(--text-light); }
 .exp-amt-val { font-size: 14px; font-weight: 900; color: var(--text); }
@@ -557,8 +557,6 @@ body.no-scroll { overflow: hidden; }
           </div>
           <div class="header-name"><span class="hn1">Hualien</span> <span class="hn2">Chill Trip</span></div>
         </div>
-      </div>
-      <div class="header-meta">
         <button class="admin-btn" id="adminBtn" onclick="toggleAdmin()">🔐 管理者</button>
       </div>
       <div class="tabs">
