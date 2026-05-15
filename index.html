@@ -66,8 +66,8 @@ body {
   font-size: 42px; font-weight: 900; line-height: 1.1;
   margin-bottom: 12px; letter-spacing: -0.5px;
 }
-.splash-t1 { color: var(--teal-dark); }
-.splash-t2 { color: var(--text); }
+.splash-t1 { color: var(--text); }
+.splash-t2 { color: var(--teal-dark); display: block; }
 .splash-sub {
   font-size: 18px; font-weight: 800; color: var(--teal);
   letter-spacing: 3px; margin-bottom: 32px;
@@ -118,8 +118,8 @@ body {
   color: var(--teal); text-transform: uppercase; margin-bottom: 3px;
 }
 .header-name { font-size: 22px; font-weight: 900; line-height: 1.2; }
-.header-name .hn1 { color: var(--teal-dark); }
-.header-name .hn2 { color: var(--text); }
+.header-name .hn1 { color: var(--text); }
+.header-name .hn2 { color: var(--teal-dark); }
 .header-meta {
   display: flex; align-items: center; gap: 7px;
   margin-bottom: 10px; flex-wrap: wrap;
@@ -545,7 +545,7 @@ body.no-scroll { overflow: hidden; }
         </div>
       </div>
       <div class="header-meta">
-        <div class="meta-pill"><span class="meta-year">2026</span><span class="meta-sep">／</span>20 May – 22 May</div>
+        <div class="meta-pill">May 20 – 22</div>
         <button class="admin-btn" id="adminBtn" onclick="toggleAdmin()">🔐 管理者</button>
       </div>
       <div class="tabs">
@@ -976,14 +976,16 @@ function renderExpenses(){
             <button class="icon-btn del"  onclick="deleteExpense('${exp.id}')">🗑</button>
           </div>
           <div class="settled-inline${isSettled?' done':''}" onclick="toggleSettled('${exp.id}')">
-            <span class="settled-lbl">${isSettled?'已結算':'結算'}</span>
             <div class="settled-check">${isSettled?'✓':''}</div>
+            <span class="settled-lbl">${isSettled?'已結算':'結算'}</span>
           </div>
         </div>
       </div>
-      <div class="exp-amounts"${isSettled?' style="opacity:0.4"':''}>${amtsHtml}</div>
+      <div class="exp-amounts"${isSettled?' style="opacity:0.4"':''}>
+        ${amtsHtml}
+        <span class="exp-payer-tag" style="align-self:center">💳 ${exp.payer}</span>
+      </div>
       <div class="exp-tags"${isSettled?' style="opacity:0.4"':''}>
-        <span class="exp-payer-tag">💳 ${exp.payer} 代墊</span>
         <span class="exp-share-tag">👥 ${sharers.join('、')}</span>
       </div>
       ${exp.note ? `<div class="exp-note"${isSettled?' style="opacity:0.4"':''}>📝 ${esc(exp.note)}</div>` : ''}
